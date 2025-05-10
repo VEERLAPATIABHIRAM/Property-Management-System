@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunny 2BHK with Garden - Tenant Application</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: #2e8b57;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        /* Features Section */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 40px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            width: 100%;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #2e8b57;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f39c12;
+        }
+        
+        .feature {
+            flex: 1 1 200px;
+            margin: 15px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #f39c12;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gallery img {
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Application Form Section */
+        .application-form {
+            background-color: white;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .full-width {
+            grid-column: span 2;
+        }
+        
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2e8b57;
+        }
+        
+        form input,
+        form select,
+        form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        button {
+            background-color: #f39c12;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #e67e22;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: white;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact p {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2e8b57;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            form {
+                grid-template-columns: 1fr;
+            }
+            
+            .full-width {
+                grid-column: span 1;
+            }
+            
+            .feature {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sunny 2BHK with Garden</h1>
+            <p class="tagline">Spacious living with natural light and greenery in the heart of New Delhi</p>
+        </header>
+        
+        <section class="features">
+            <h2>Key Features</h2>
+            <div class="feature">
+                <h3>Spacious Layout</h3>
+                <p>Two bedrooms with a separate living room, dining area, and a modern kitchen.</p>
+            </div>
+            <div class="feature">
+                <h3>Private Garden</h3>
+                <p>Enjoy your own garden space perfect for relaxation, gardening, or outdoor dining.</p>
+            </div>
+            <div class="feature">
+                <h3>Abundant Sunlight</h3>
+                <p>Large windows in every room provide natural lighting throughout the day.</p>
+            </div>
+            <div class="feature">
+                <h3>Modern Amenities</h3>
+                <p>Air conditioning, washing machine, dishwasher, and 24/7 security available.</p>
+            </div>
+        </section>
+        
+        <section class="gallery">
+            <h2>Gallery</h2>
+            <img src="LivingRoomWithGardenView.jpg" alt="Living Room with Garden View" style="width: 250px; height: auto;">
+            <img src="MasterBedroom2.jpg" alt="Master Bedroom" style="width: 250px; height: auto;">
+            <img src="ModernKitchen.jpg" alt="Modern Kitchen" style="width: 250px; height: auto;">
+            <img src="PrivateGadern.jpg" alt="Private Garden" style="width: 250px; height: auto;">
+        </section>
+        
+        <section class="application-form">
+            <h2>Tenant Application</h2>
+            <form id="tenantForm">
+                <div>
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                
+                <div>
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                
+                <div>
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div>
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div>
+                    <label for="occupation">Occupation</label>
+                    <input type="text" id="occupation" name="occupation" required>
+                </div>
+                
+                <div>
+                    <label for="employer">Current Employer</label>
+                    <input type="text" id="employer" name="employer" required>
+                </div>
+                
+                <div>
+                    <label for="monthlyIncome">Monthly Income (₹)</label>
+                    <input type="number" id="monthlyIncome" name="monthlyIncome" required>
+                </div>
+                
+                <div>
+                    <label for="moveInDate">Preferred Move-in Date</label>
+                    <input type="date" id="moveInDate" name="moveInDate" required>
+                </div>
+                
+                <div class="full-width">
+                    <label for="currentAddress">Current Address</label>
+                    <textarea id="currentAddress" name="currentAddress" required></textarea>
+                </div>
+                
+                <div>
+                    <label for="residents">Number of Residents</label>
+                    <input type="number" id="residents" name="residents" min="1" max="6" required>
+                </div>
+                
+                <div>
+                    <label for="pets">Do you have pets?</label>
+                    <select id="pets" name="pets" required>
+                        <option value="">Select an option</option>
+                        <option value="no">No</option>
+                        <option value="dog">Yes, dog(s)</option>
+                        <option value="cat">Yes, cat(s)</option>
+                        <option value="other">Yes, other</option>
+                    </select>
+                </div>
+                
+                <div class="full-width">
+                    <label for="additionalInfo">Additional Information</label>
+                    <textarea id="additionalInfo" name="additionalInfo" placeholder="Please include any specific requirements or questions you may have."></textarea>
+                </div>
+                
+                <div class="full-width">
+                    <button type="submit">Submit Application</button>
+                </div>
+            </form>
+        </section>
+        
+        <section class="contact">
+            <h2>Contact</h2>
+            <p>📞 Call us: +91-9988776655</p>
+            <p>📧 Email: sunny@gardenhomes.com</p>
+            <p>📍 Location: Saket, New Delhi, India</p>
+        </section>
+        
+        <footer>
+            <p>&copy; </p>
+        </footer>
+    </div>
+    
+    <script>
+        document.getElementById('tenantForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your application! We will contact you within 48 hours.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('background.jpg'); /* Add your background image here */
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            animation: fadeIn 1s ease-in;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark background for readability */
+            padding: 10px 20px;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: right;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #444;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.7); /* Dark background for footer */
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Page Specific Styles */
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .property-card {
+            background-color: white;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            display: inline-block;
+            opacity: 0;
+            animation: fadeInCard 1s ease-out forwards;
+        }
+
+    .property-card img {
+    width: 80%;
+    height: auto;
+    border-radius: 160px;
+    max-height: 160px; /* limits the image height */
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+        .property-info {
+            text-align: left;
+        }
+
+        .property-card button {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .property-card button:hover {
+            background-color: #555;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInCard {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Property Management System</div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="Properties.html">Properties</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="index.html" class="login-btn">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="properties">
+            <h1>Available Properties</h1>
+            <div class="property-card">
+                <img src="property1.jpg" alt="Property 1">
+                <div class="property-info">
+                    <h2>Modern 3BHK Apartment</h2>
+                    <p>Location: Downtown</p>
+                    <p>Price: $1200/month</p>
+                    <a href="view.html"><button>View Details</button></a>
+                </div>
+            </div>
+            <div class="property-card">
+                <img src="property2.jpg" alt="Property 2">
+                <div class="property-info">
+                    <h2>Cozy Studio</h2>
+                    <p>Location: Suburbs</p>
+                    <p>Price: $850/month</p>
+                    <a href="view2.html"><button>View Details</button></a>
+                </div>
+            </div>
+            <div class="property-card">
+    <img src="Luxury villa Appartment.jpg" alt="Property 3">
+    <div class="property-info">
+        <h2>Luxury Villa</h2>
+        <p>Location: Hillside</p>
+        <p>Price: $2500/month</p>
+        <a href="view3.html"><button>View Details</button></a>
+    </div>
+</div>
+<div class="property-card">
+    <img src="Compact2BHK Flat.jpg" alt="Property 5">
+    <div class="property-info">
+        <h2>Compact 2BHK Flat</h2>
+        <p>Location: City Center</p>
+        <p>Price: $1000/month</p>
+        <a href="View4.html"><button>View Details</button></a>
+    </div>
+</div>
+<div class="property-card">
+    <img src="TenantProperty.jpg" alt="Tenant Property">
+    <div class="property-info">
+        <h2>Sunny 2BHK with Garden</h2>
+        <p>Location: Green Valley</p>
+        <p>Tenant: Abhiram</p>
+        <p>Rent Paid: $1050/month</p>
+        <p>Status: Occupied</p>
+        <a href="tenant_view.html"><button>View Details</button></a>
+    </div>
+</div>
+        </section>
+    </main>
+
+<script>
+        // Animation for Property Cards
+        window.onload = function () {
+            const cards = document.querySelectorAll('.property-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.animation = "fadeInCard 1s ease-out forwards";
+                }, index * 300); // Delays each card animation slightly
+            });
+        }
+    </script>
+   
+
+</body>
+</html>

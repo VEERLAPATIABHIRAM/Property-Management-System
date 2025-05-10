@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Property Management System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: url('/mnt/data/e52f00e3-eb3f-4d31-b7f6-9b38202ad1d0.png') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* dark overlay */
+      z-index: -1;
+    }
+
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      width: 350px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    input[type="text"], input[type="password"], input[type="email"], input[type="tel"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .link {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .link a {
+      color: #2980b9;
+      text-decoration: none;
+    }
+
+    .profile {
+      display: none;
+    }
+
+    .profile-info p {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    .logout-btn {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 10px;
+      background-color: #e74c3c;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      width: 100%;
+    }
+
+    .error {
+      color: red;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Property Management System</h1>
+  </header>
+
+  <div class="container">
+    <!-- Login Form -->
+    <div class="card" id="loginCard">
+      <h2>Login</h2>
+      <div id="error" class="error"></div>
+      <input type="text" id="username" placeholder="Username" />
+      <input type="password" id="password" placeholder="Password" />
+      <button onclick="login()">Login</button>
+      <div class="link">
+        Don't have an account? <a href="#" onclick="showSignup()">Sign Up</a>
+      </div>
+    </div>
+
+    <!-- Signup Form -->
+    <div class="card" id="signupCard" style="display:none;">
+      <h2>Sign Up</h2>
+      <input type="text" id="signupName" placeholder="Full Name" />
+      <input type="text" id="signupUsername" placeholder="Username" />
+      <input type="email" id="signupEmail" placeholder="Email" />
+      <input type="tel" id="signupPhone" placeholder="Phone" />
+      <input type="password" id="signupPassword" placeholder="Password" />
+      <button onclick="signup()">Sign Up</button>
+      <div class="link">
+        Already have an account? <a href="#" onclick="showLogin()">Login</a>
+      </div>
+    </div>
+
+    <!-- Profile View -->
+    <div class="card profile" id="profileCard">
+      <h2>User Profile</h2>
+      <div class="profile-info" id="profileInfo"></div>
+      <a href="#" class="logout-btn" onclick="logout()">Logout</a>
+    </div>
+  </div>
+
+  <script>
+    let users = [
+      {
+        username: "Admin User",
+        password: "ABCD",
+        profile: {
+          name: "Veerlapati Abhiram",
+          email: "veerlapatiabhiram@gmail.com",
+          phone: "+919182536673",
+          password: "Agl@1234",
+          role: "Administrator",
+          joined: "Jan 1, 2022"
+        }
+      },
+      {
+        username: "manager",
+        password: "prop2024",
+        profile: {
+          name: "Property Manager",
+          email: "manager@example.com",
+          phone: "+1 444 555 6666",
+          password: "********",
+          role: "Property Manager",
+          joined: "Feb 15, 2023"
+        }
+      }
+    ];
+
+    function login() {
+      const uname = document.getElementById("username").value.trim();
+      const pass = document.getElementById("password").value.trim();
+      const errorDiv = document.getElementById("error");
+
+      const user = users.find(u => u.username === uname && u.password === pass);
+
+      if (user) {
+        document.getElementById("loginCard").style.display = "none";
+        document.getElementById("profileCard").style.display = "block";
+        errorDiv.textContent = "";
+        showProfile(user.profile);
+      } else {
+        errorDiv.textContent = "Invalid username or password!";
+      }
+    }
+
+    function signup() {
+      const name = document.getElementById("signupName").value.trim();
+      const username = document.getElementById("signupUsername").value.trim();
+      const email = document.getElementById("signupEmail").value.trim();
+      const phone = document.getElementById("signupPhone").value.trim();
+      const password = document.getElementById("signupPassword").value.trim();
+
+      if (!username || !password || !email) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+
+      // Add user
+      users.push({
+        username,
+        password,
+        profile: {
+          name,
+          email,
+          phone,
+          password,
+          role: "User",
+          joined: new Date().toLocaleDateString()
+        }
+      });
+
+      alert("Signup successful. Please login.");
+      showLogin();
+    }
+
+    function logout() {
+      document.getElementById("profileCard").style.display = "none";
+      document.getElementById("loginCard").style.display = "block";
+      document.getElementById("username").value = "";
+      document.getElementById("password").value = "";
+      document.getElementById("error").textContent = "";
+    }
+
+    function showProfile(profile) {
+      const profileDiv = document.getElementById("profileInfo");
+      profileDiv.innerHTML = `
+        <p><strong>Name:</strong> ${profile.name}</p>
+        <p><strong>Email:</strong> ${profile.email}</p>
+        <p><strong>Phone:</strong> ${profile.phone}</p>
+        <p><strong>Password:</strong> ${profile.password}</p>
+        <p><strong>Role:</strong> ${profile.role}</p>
+        <p><strong>Joined:</strong> ${profile.joined}</p>
+      `;
+    }
+
+    function showSignup() {
+      document.getElementById("loginCard").style.display = "none";
+      document.getElementById("signupCard").style.display = "block";
+    }
+
+    function showLogin() {
+      document.getElementById("signupCard").style.display = "none";
+      document.getElementById("loginCard").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <style>
+        /* Background Image */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('background.jpg'); /* Add your background image here */
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            animation: fadeIn 1s ease-in;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark background for readability */
+            padding: 10px 20px;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: right;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #444;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.7); /* Dark background for footer */
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Page Specific Styles */
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .service {
+            background-color: white;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            display: inline-block;
+            opacity: 0;
+            animation: fadeInCard 1s ease-out forwards;
+        }
+
+        .service h2 {
+            font-size: 24px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInCard {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Property Management System</div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="Properties.html">Properties</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="index.html" class="login-btn">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="services">
+            <h1>Our Services</h1>
+            <div class="service">
+                <h2>Property Listing</h2>
+                <p>We offer a wide range of properties for rent or sale, including apartments, houses, and commercial spaces.</p>
+            </div>
+            <div class="service">
+                <h2>Property Management</h2>
+                <p>Our team will handle everything from tenant screening to maintenance, ensuring your property is well taken care of.</p>
+            </div>
+            <div class="service">
+                <h2>Consultation</h2>
+                <p>We provide expert advice on real estate investment, property pricing, and market trends to help you make informed decisions.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Property Management. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Animation for Services
+        window.onload = function () {
+            const services = document.querySelectorAll('.service');
+            services.forEach((service, index) => {
+                setTimeout(() => {
+                    service.style.animation = "fadeInCard 1s ease-out forwards";
+                }, index * 300); // Delays each service animation slightly
+            });
+        }
+    </script>
+</body>
+</html>
